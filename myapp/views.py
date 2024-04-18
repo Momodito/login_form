@@ -50,6 +50,7 @@ class UserRegistration(View):
             password = request.POST.get('contrasena')
             hashed_password = make_password(password)
             user = UserLogin(first_name=name, last_name=last_name, username=username, email=email, password=hashed_password)
+            print(user)
             user.save()
 
             
@@ -60,7 +61,7 @@ class UserRegistration(View):
 
     
 @method_decorator(csrf_exempt, name="dispatch")
-class UserLogin(View):
+class UserSignIn(View):
 
     def get(self,request):
         if request.user.is_authenticated:

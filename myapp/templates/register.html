@@ -1,40 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>Registro de usuario</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #15202B; /* Azul oscuro */
+      color: #fff; /* Color de texto blanco */
+    }
+    .register-form {
+      width: 400px; /* Ancho del formulario */
+      margin: 100px auto; /* Centrado vertical */
+      background-color: #000; /* Fondo negro */
+      padding: 20px;
+      border-radius: 20px; /* Bordes redondeados */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .form-control {
+      border-radius: 10px; /* Bordes redondeados en los input */
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Registro de usuario</h1>
-    
-    <form method="POST">
-        
-        <label for="input_name">Nombre</label>
-            <input type="text" id="input_name" name="name" required>
-    
-        <label for="input_lastname">Apellido</label>
-            <input type="text" id="input_lastname" name="lastname" required>
-    
-        <label for="input_nickname">Nombre de usuario</label>
-            <input type="text" id="input_nickname" name="nickname" required>
-    
-        <label for="email">Correo</label>
-            <input type="text" id="email" name="email" required>
-    
-        <label for="password">Contraseña</label>
-            <input type="password" name="contrasena" id="password" required> 
-    
-                <button type="submit">Registrarse</button>
-    </form>
-    
-    <ul>
-
-            <li>
-                <a href="/index">Home</a>
-            </li>
-            <li>
-                <a href="/login">Log In</a>
-            </li>
-
-    </ul>
-    
+  <div class="container">
+    <div class="register-form">
+      <h2 class="text-center">Registro de Usuario</h2>
+      <form method="POST">
+        <div class="form-group">
+          <input name="name" type="text" class="form-control" placeholder="Nombre" required>
+        </div>
+        <div class="form-group">
+          <input name="lastname" type="text" class="form-control" placeholder="Apellido" required>
+        </div>
+        <div class="form-group">
+          <input name="nickname" type="text" class="form-control" placeholder="Nombre de Usuario" required>
+        </div>
+        <div class="form-group">
+          <input name="email" type="email" class="form-control" placeholder="Correo electrónico" required>
+        </div>
+        <div class="form-group">
+          <input name="contrasena" type="password" class="form-control" placeholder="Contraseña" required>
+        </div>
+        <br/>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+        </div>
+      </form>
+      <p class="text-center"><a href="/login">¿Ya tienes una cuenta? ¡Accede!</a></p>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
+</html>
