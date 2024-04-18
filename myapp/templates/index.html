@@ -1,0 +1,44 @@
+<body>
+  {% load static %}
+  <header>
+    <h1>Quesillo Studios</h1>
+    <nav>
+      {% if username != "" %}
+      <a id="login_from_index" href="/login">Log In</a>
+      <a href="/register">Sign Up</a>
+      <a href="/home/{{username}}">Home</a>
+      {% else %}
+      <a href="/login">Log In</a>
+      <a href="/register">Sign Up</a>
+      {% endif %}
+
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Título de la sección</h2>
+      
+      <p>Contenido de la sección.</p>
+    </section>
+
+    <section>
+      <h2>Otro título de sección</h2>
+      <ul>
+        <li>Elemento de la lista</li>
+        <li>Otro elemento de la lista</li>
+        <li>Más elementos...</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Copyright &copy; 2024</p>
+  </footer>
+  {% block scrypttags %}
+  <script src="{% static 'js/advise_login.js' %}"> </script>
+  {% endblock %}
+</body>
+</html>
+
+

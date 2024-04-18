@@ -1,0 +1,35 @@
+{% if  username != ""%}
+
+<h1>Welcome, {{ username }}</h1>
+
+<p>Yastas dentro</p>
+
+<form action="{% url 'user_logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Cerrar sesión</button>
+  </form>
+  <nav>
+    <ul>
+        <a href="/">Inicio</a>
+        <a href="/register">Sign Up</a>
+    </ul>
+</nav>
+  {% else %}
+
+  <h1>Welcome</h1>
+
+<p>Quesillo Studios, sientete libre de degustar el sitio</p>
+
+<nav>
+
+    <a href="/index">Inicio</a>
+    <a href="/login">Log In</a>
+    <a href="/register">Sign Up</a>
+    
+    </ul>
+</nav>
+
+{% endif %}
+
+
+

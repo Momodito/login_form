@@ -1,0 +1,19 @@
+services:
+  db:
+    container_name: db_container
+    environment:
+    - POSTGRES_DB=database_login
+    - POSTGRES_PASSWORD=123456
+    - POSTGRES_USER=db_login
+    - PGDATA=/var/lib/postgresql/data/pgdata
+    image: postgres:13
+    ports:
+    - 5432:5432
+    restart: always
+    volumes:
+    - database_login-data:/var/lib/postgresql/data/pgdata
+
+version: '3.3'
+
+volumes:
+  database_login-data: null
