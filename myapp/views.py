@@ -91,7 +91,7 @@ class UserSignIn(View):
     #         return render(request, 'login.html', {'error': 'Credenciales inválidas.'})
 
 
-    ############################ VULNERABILIDAD INJECTION SQL ##################################
+    ############################ VULNERABILIDAD INJECTION SQL (' OR '1'='1)##################################
         def get(self,request):
             if request.user.is_authenticated:
                 return redirect('index')
