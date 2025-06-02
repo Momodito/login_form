@@ -1,41 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Principal</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f4f4f4; /* Color de fondo */
-      padding: 50px;
-    }
-    .btn-group {
-      margin-bottom: 20px;
-      text-align: center; /* Centrar botones */
-    }
-    .btn {
-      background-color: #1E90FF; /* Azul oscuro */
-      color: #fff; /* Color de texto blanco */
-      margin: 5px; /* Margen entre botones */
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2 class="text-center">Página Principal</h2>
-    <div class="d-flex justify-content-center">
-      {% if username != "" %}
-      <a href="/register" class="btn">Registrarse</a>
-      <a href="/home/{{username}}" class="btn">Home</a>
-      {% else %}
-      <a href="/login" class="btn">Iniciar Sesión</a>
-      <a href="/register" class="btn">Registrarse</a>
-      {% endif %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Principal</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #1e90ff 0%, #6dd5ed 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main-card {
+        background: #000;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        padding: 40px 30px 30px 30px;
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .main-card h2 {
+        color: #1e90ff;
+        font-weight: 700;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+      }
+      .btn-custom {
+        background: linear-gradient(90deg, #1e90ff 60%, #6dd5ed 100%);
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 30px;
+        margin: 10px 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 2px 8px rgba(30, 144, 255, 0.08);
+      }
+      .btn-custom:hover {
+        background: linear-gradient(90deg, #6dd5ed 0%, #1e90ff 100%);
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+        text-decoration: none;
+      }
+      .footer-text {
+        margin-top: 30px;
+        color: #aaa;
+        font-size: 0.95rem;
+      }
+      a {
+        color: #1e90ff;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: #6dd5ed;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-card">
+      <h2>Página Principal</h2>
+      <div>
+        {% if username != "" %}
+        <a href="/register" class="btn btn-custom btn-block">Registrarse</a>
+        <a href="/home/{{username}}" class="btn btn-custom btn-block">Home</a>
+        {% else %}
+        <a href="/login" class="btn btn-custom btn-block">Iniciar Sesión</a>
+        <a href="/register" class="btn btn-custom btn-block">Registrarse</a>
+        {% endif %}
+      </div>
+      <div class="footer-text">Ingresa y prueba!</div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

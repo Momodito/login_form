@@ -1,58 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Usuario</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #15202B; /* Azul oscuro */
-      color: #fff; /* Color de texto blanco */
-    }
-    .register-form {
-      width: 400px; /* Ancho del formulario */
-      margin: 100px auto; /* Centrado vertical */
-      background-color: #000; /* Fondo negro */
-      padding: 20px;
-      border-radius: 20px; /* Bordes redondeados */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    .form-control {
-      border-radius: 10px; /* Bordes redondeados en los input */
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Usuario</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #1e90ff 0%, #6dd5ed 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      .register-form {
+        background: #000;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        padding: 40px 30px 30px 30px;
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .register-form h2 {
+        color: #1e90ff;
+        font-weight: 700;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+      }
+      .form-control {
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+      .btn-custom {
+        background: linear-gradient(90deg, #1e90ff 60%, #6dd5ed 100%);
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 30px;
+        margin: 10px 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 2px 8px rgba(30, 144, 255, 0.08);
+      }
+      .btn-custom:hover {
+        background: linear-gradient(90deg, #6dd5ed 0%, #1e90ff 100%);
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+        text-decoration: none;
+      }
+      .footer-text {
+        margin-top: 20px;
+        color: #aaa;
+        font-size: 0.95rem;
+      }
+      a {
+        color: #1e90ff;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: #6dd5ed;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
     <div class="register-form">
       <h2 class="text-center">Registro de Usuario</h2>
       <form method="POST">
         <div class="form-group">
-          <input name="name" type="text" class="form-control" placeholder="Nombre" required>
+          <input
+            name="name"
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            required
+          />
         </div>
         <div class="form-group">
-          <input name="lastname" type="text" class="form-control" placeholder="Apellido" required>
+          <input
+            name="lastname"
+            type="text"
+            class="form-control"
+            placeholder="Apellido"
+            required
+          />
         </div>
         <div class="form-group">
-          <input name="nickname" type="text" class="form-control" placeholder="Nombre de Usuario" required>
+          <input
+            name="nickname"
+            type="text"
+            class="form-control"
+            placeholder="Nombre de Usuario"
+            required
+          />
         </div>
         <div class="form-group">
-          <input name="email" type="email" class="form-control" placeholder="Correo electrónico" required>
+          <input
+            name="email"
+            type="email"
+            class="form-control"
+            placeholder="Correo electrónico"
+            required
+          />
         </div>
         <div class="form-group">
-          <input name="contrasena" type="password" class="form-control" placeholder="Contraseña" required>
+          <input
+            name="contrasena"
+            type="password"
+            class="form-control"
+            placeholder="Contraseña"
+            required
+          />
         </div>
-        <br/>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
-        </div>
+        <button type="submit" class="btn btn-custom btn-block">
+          Registrarse
+        </button>
       </form>
-      <p class="text-center"><a href="/login">¿Ya tienes una cuenta? ¡Accede!</a></p>
+      <div class="footer-text">
+        <a href="/login">¿Ya tienes una cuenta? ¡Accede!</a>
+      </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

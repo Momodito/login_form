@@ -1,34 +1,171 @@
-{% if  username != ""%}
+{% if username != "" %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenido</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f4f4f4; /* Color de fondo */
-      padding: 50px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2 class="text-center">¡Bienvenido!</h2>
-    <p class="text-center">Gracias por iniciar sesión.</p>
-    <div class="text-center">
-      <form action="{% url 'user_logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary" >Cerrar Sesión</button>
-    </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #1e90ff 0%, #6dd5ed 100%);
+        min-height: 100vh;
+        color: #fff;
+      }
+      .sidebar {
+        height: 100vh;
+        background: #000;
+        color: #fff;
+        padding-top: 30px;
+        border-radius: 16px 0 0 16px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      }
+      .sidebar a {
+        color: #fff;
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+        margin: 0 10px 10px 10px;
+        transition: background 0.2s;
+      }
+      .sidebar a:hover {
+        background: #1e90ff;
+        text-decoration: none;
+        color: #fff;
+      }
+      .dashboard-content {
+        padding: 30px;
+        background: #000;
+        border-radius: 0 16px 16px 0;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        min-height: 400px;
+        color: #fff;
+      }
+      .dashboard-content h2 {
+        color: #1e90ff;
+        font-weight: 700;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+      }
+      .card {
+        background: #111;
+        border-radius: 12px;
+        color: #fff;
+        border: none;
+        box-shadow: 0 2px 8px rgba(30, 144, 255, 0.08);
+      }
+      .card-title {
+        color: #1e90ff;
+        font-weight: 600;
+      }
+      .btn-danger {
+        border-radius: 25px;
+        font-weight: 500;
+        padding: 10px 0;
+        margin-top: 10px;
+        background: linear-gradient(90deg, #ff416c 60%, #ff4b2b 100%);
+        border: none;
+        transition: background 0.3s, transform 0.2s;
+      }
+      .btn-danger:hover {
+        background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
+        transform: translateY(-2px) scale(1.04);
+      }
+      .text-muted {
+        color: #aaa !important;
+      }
+      @media (max-width: 767px) {
+        .sidebar {
+          border-radius: 16px 16px 0 0;
+          height: auto;
+          margin-bottom: 20px;
+        }
+        .dashboard-content {
+          border-radius: 0 0 16px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div
+        class="row justify-content-center align-items-center"
+        style="min-height: 100vh"
+      >
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="sidebar-sticky">
+            <h4 class="text-center mb-4">Dashboard</h4>
+            <a href="#">Inicio</a>
+            <a href="#">Perfil</a>
+            <a href="#">Configuración</a>
+            <a href="#">Ayuda</a>
+            <form
+              action="{% url 'user_logout' %}"
+              method="post"
+              class="mt-4 text-center"
+            >
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-block">
+                Cerrar Sesión
+              </button>
+            </form>
+          </div>
+        </nav>
+        <!-- Main Content -->
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="dashboard-content mt-4">
+            <h2>¡Bienvenido, {{ username }}!</h2>
+            <p>
+              Este es tu panel de control. Aquí puedes ver información
+              relevante, acceder a tus configuraciones y mucho más.
+            </p>
+            <hr />
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">Estadísticas</h5>
+                    <p class="card-text">
+                      Aquí puedes ver tus estadísticas de uso.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">Notificaciones</h5>
+                    <p class="card-text">No tienes notificaciones nuevas.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">Acciones rápidas</h5>
+                    <p class="card-text">
+                      Accede rápidamente a tus funciones favoritas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted mt-4">
+              Texto de ejemplo para el dashboard. Puedes personalizar este panel
+              según tus necesidades.
+            </p>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>
-
 {% endif %}
-
